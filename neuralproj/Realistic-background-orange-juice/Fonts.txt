@@ -1,0 +1,10 @@
+Fonts used in this design;
+
+Font: Josefin Sans, 
+Author: Typemade, 
+Url: http://www.fontsquirrel.com/fonts/josefin-sans; 
+
+Font: Lucien Schoenschriftv CAT, 
+Author: Peter Wiegel, 
+Url: https://www.fontsquirrel.com/fonts/lucien-schoenschriftv-cat; 
+

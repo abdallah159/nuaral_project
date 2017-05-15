@@ -1,0 +1,146 @@
+function varargout = monmon(varargin)
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @ftmtm_OpeningFcn, ...
+                   'gui_OutputFcn',  @ftmtm_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before ftmtm is made visible.
+function ftmtm_OpeningFcn(hObject, eventdata, handles, varargin)
+% Choose default command line output for ftmtm
+handles.output = hObject;
+axes(handles.axes1)
+imshow('neuralproj.png')
+% Update handles structure
+guidata(hObject, handles);
+
+% --- Outputs from this function are returned to the command line.
+function varargout = ftmtm_OutputFcn(hObject, eventdata, handles) 
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+function edit3_Callback(hObject, eventdata, handles)
+
+% --- Executes during object creation, after setting all properties.
+function edit3_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit4_Callback(hObject, eventdata, handles)
+
+
+
+% --- Executes during object creation, after setting all properties.
+function edit4_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+function edit5_Callback(hObject, eventdata, handles)
+
+
+
+% --- Executes during object creation, after setting all properties.
+function edit5_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit6_Callback(hObject, eventdata, handles)
+
+
+
+% --- Executes during object creation, after setting all properties.
+function edit6_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit7_Callback(hObject, eventdata, handles)
+
+function edit7_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function edit8_Callback(hObject, eventdata, handles)
+
+
+function edit8_CreateFcn(hObject, eventdata, handles)
+
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+function pushbutton4_Callback(hObject, eventdata, handles)
+
+%connection to database
+
+image_folder='D:\3th\2nd semester\Neural Network\NP\DB\';
+filename=dir(fullfile(image_folder,'*.jpg')); 
+for i=1:8
+    disp(filename(i).name);
+end
+
+%if (isequal(filename,image_folder))
+conn=database('fruits','','');
+cursn = exec(conn,'SELECT fruitname FROM fruits WHERE ID = 2 ');
+dn = fetch(cursn);
+cursnn= dn.DATA;
+set(handles.edit7,'string',cursnn);
+cursc = exec(conn,'SELECT color FROM fruits WHERE ID = 2 ');
+dc = fetch(cursc);
+curscc= dc.DATA;
+set(handles.edit8,'string',curscc);
+curst = exec(conn,'SELECT fruit_texture FROM fruits WHERE ID = 2 ');
+dt = fetch(curst);
+curstt= dt.DATA;
+set(handles.edit6,'string',curstt);
+
+function pushbutton6_Callback(hObject, eventdata, handles)
+
+h = msgbox('the fruit is add to database');
+
+
+% --- Executes on button press in pushbutton7.
+function pushbutton7_Callback(hObject, eventdata, handles)
+
+handles = guidata(hObject);
+
+%another way
+global  filename,
+[filename pathname] = uigetfile({'*.jpg';'*.png'},'File Selector');
+image = strcat(pathname, filename);
+axes(handles.axes3);
+imshow(image)
+handles.img =filename;
+guidata(hObject,handles);
